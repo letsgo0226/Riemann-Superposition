@@ -287,6 +287,7 @@ Alternatives:
 
 ---
 
-## Repository
+## 🌌 Run
 
-https://github.com/letsgo0226/Riemann-Superposition
+```bash
+python3 -c 'import sys,cmath,math,time;E="\033";W,H=80,18;C=" .:-=+*#%@";T=[0.0];N=16;Norm=lambda v:(lambda n:[x/n for x in v])((sum(abs(x)**2 for x in v))**.5+1e-12);[(t:=14+8*math.sin(T[0]*.03),psi:=Norm([n**(-0.5)*cmath.exp(-1j*t*math.log(n)) for n in range(1,N+1)]),P:=[abs(x)**2 for x in psi],ENT:=sum(abs((psi[i]*psi[(i+1)%N].conjugate()).real) for i in range(N))/N,PH:=cmath.phase(sum(psi)),AMP:=sum(abs(x) for x in psi)/N,QL:=max(0,min(1,.5*AMP+.5*ENT)),bar:=int(QL*40),F:="\n".join("".join(C[max(0,min(9,int((math.sin(.11*x+PH+t*.03)*math.cos(.17*y-PH+ENT*5)+math.sin(.23*(x-y)+AMP*6)+2)/4*9)))]for x in range(W))for y in range(H)),sys.stdout.write(f"{E}[2J{E}[H{E}[95m=== RIEMANN CRITICAL QUANTUM SUPERPOSITION ==={E}[0m\n{E}[97mpsi(t)=sum n^(-1/2) exp(-it log n)|n>{E}[0m\n{E}[93mt={t:+.3f} | AMP={AMP:.3f} | ENT={ENT:.3f} | Q={QL*100:5.1f}%{E}[0m\n{E}[96mRe(s)=1/2 defines normalization ; Im(s)=t defines phase interference{E}[0m\n{F}\n{E}[92mRIEMANN SUPERPOSITION ["+("#"*bar)+"."*(40-bar)+f"] {QL*100:5.1f}%{E}[0m\n{E}[91mThe Riemann critical line generates a quantum-like arithmetic phase superposition field over integer basis states.{E}[0m"),sys.stdout.flush(),T.__setitem__(0,T[0]+1),time.sleep(.03))for _ in iter(int,1)]'
